@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace ServiceCatalogApi.Domain
 {
-    public class EventType
+    public class EventCategory
     {
+        public int Id { get; set; }
+        public string Category { get; set; }
     }
 }
