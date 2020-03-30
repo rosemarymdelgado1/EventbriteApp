@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ServiceCatalogApi.Data
 {
-    public class EventSeed
+    public class CatalogSeed
     {
     }
 }
