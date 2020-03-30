@@ -698,5 +698,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 
 .ionide/
-ServiceCatalogApi/Data/CatalogContext.cs
-ServiceCatalogApi/Data/CatalogContext.cs
+
