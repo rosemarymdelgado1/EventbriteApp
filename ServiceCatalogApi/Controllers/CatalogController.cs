@@ -9,7 +9,7 @@ namespace ServiceCatalogApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventController : ControllerBase
+    public class CatalogController : ControllerBase
     {
     }
 }
