@@ -8,7 +8,6 @@ namespace ServiceCatalogApi.Domain
     public class EventLocation
     {
         public int Id { get; set; }
-        public string Venue { get; set; }
         public string Location { get; set; }
     }
 }
