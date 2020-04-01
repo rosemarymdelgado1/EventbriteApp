@@ -22,5 +22,15 @@ namespace ServiceCatalogApi
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        public static class Extensions
+        {
+            public static DateTime ToEventDateTime(this DateTime dDateTime)
+            {
+                DateTime edtDateTime = new DateTime();
+                edtDateTime.DateTime = DateTime.ParseExact(dDateTime.ToString("MM/dd/yyyy HH:mm"), "MM/dd/yyyy HH:mm", null);
+                return edtDateTime;
+            }
+
+        }
     }
 }

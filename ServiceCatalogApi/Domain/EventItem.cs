@@ -15,8 +15,10 @@ namespace ServiceCatalogApi.Domain
         public string Organizer { get; set; }
         public string PictureUrl { get; set; }
         public int EventCategoryId { get; set; }
+        public int EventTypeId { get; set; }
         public int EventLocationId { get; set; }
         public virtual EventCategory EventCategory { get; set; }
+        public virtual EventType EventType { get; set; }
         public virtual EventLocation EventLocation { get; set; }
     }
 }
