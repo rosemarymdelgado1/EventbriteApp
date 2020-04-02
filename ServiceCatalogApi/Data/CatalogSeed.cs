@@ -1,12 +1,44 @@
 ﻿using ServiceCatalogApi.Domain;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ServiceCatalogApi.Data
 {
-    public class CatalogSeed
+    public static class CatalogSeed
     {
+        public static void Seed(CatalogContext context)
+        {
+            context.Database.Migrate();
+            if (!context.EventCategories.Any())
+            {
+                context.EventCategories.AddRange(ToBeReplaced<EventCategory>());
+                context.SaveChanges();
+            }
+            if (!context.EventTypes.Any())
+            {
+                context.EventTypes.AddRange(ToBeReplaced<EventType>());
+                context.SaveChanges();
+            }
+            if (!context.EventLocations.Any())
+            {
+                context.EventLocations.AddRange(ToBeReplaced<EventLocation>());
+                context.SaveChanges();
+            }
+            if (!context.EventItems.Any())
+            {
+                context.EventItems.AddRange(ToBeReplaced<EventItem>());
+                context.SaveChanges();
+            }
+        }
 
+        private static IEnumerable<T> ToBeReplaced<T>()
+        {
+            return new List<T>();
+        }
     }
+
+    
 
     /*
     private static IEnumerable<EventItem> GetPreConfiguredItems()
