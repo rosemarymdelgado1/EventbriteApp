@@ -11,5 +11,6 @@ namespace ServiceCatalogApi.Controllers
     [ApiController]
     public class PicController : ControllerBase
     {
+
     }
 }

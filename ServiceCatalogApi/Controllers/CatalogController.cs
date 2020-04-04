@@ -4,6 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using ServiceCatalogApi.Data;
+using ServiceCatalogApi.Domain;
+using ServiceCatalogApi.ViewModel;
 
 namespace ServiceCatalogApi.Controllers
 {
@@ -11,5 +16,37 @@ namespace ServiceCatalogApi.Controllers
     [ApiController]
     public class CatalogController : ControllerBase
     {
+        private readonly CatalogContext _context;
+        private readonly IConfiguration _config;
+
+        public CatalogController(CatalogContext context, IConfiguration config)
+        {
+            _context = context;
+            _config = config;
+        }
+
+        public async Task<IActionResult> Items([FromQuery] int pageindex = 0, [FromQuery]int pagesize = 6)
+        {
+            var itemcount = await _context.eventitem.LongCountAsync(); //eventitem name comes from CatalogContext
+            var items = await _context.eventitem.Skip(pageindex * pagesize).Take(pagesize).ToListAsync();
+            items = ChangePictureUrl(items); // as in postman we are not able to see actual pictures
+
+            var model = new PaginatedItemViewModel<EventItem>
+            {
+                PageIndex = pageindex,
+                PageSize = pagesize,
+                Count = itemcount,
+                Data = items
+            };
+            //return Ok(items)
+            return Ok(model);
+
+        }
+        private List<EventItem> ChangePictureUrl(List<EventItem> items)
+        {
+            //since strings are immutable so after replacing we are putting replaced url in same variable ie PictureUrl
+            items.ForEach(c => c.PictureUrl = c.PictureUrl.Replace("http://externalcatalogbaseurltobereplaced", _config["ExternalCatalogBaseUrl"]));
+            return (items);
+        }
     }
 }
