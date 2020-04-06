@@ -29,7 +29,7 @@ namespace ServiceCatalogApi.Data
             modelBuilder.Entity<EventType>(e =>
             {
                 e.ToTable("eventtype");
-                e.Property(c => c.Id).IsRequired().UseHiLo("eventcategoryhilo");
+                e.Property(c => c.Id).IsRequired().UseHiLo("eventtypehilo");
                 e.Property(c => c.Type).IsRequired().HasMaxLength(100);
             });
 
@@ -45,7 +45,7 @@ namespace ServiceCatalogApi.Data
             modelBuilder.Entity<EventItem>(e =>
             {
                 e.ToTable("eventItem");
-                e.Property(i => i.Id).IsRequired().UseHiLo("eventcategoryhilo");
+                e.Property(i => i.Id).IsRequired().UseHiLo("eventitemhilo");
                 e.Property(i => i.Title).IsRequired().HasMaxLength(100);
                 e.Property(i => i.Venue).IsRequired().HasMaxLength(100);
                 e.Property(i => i.Organizer).IsRequired().HasMaxLength(100);
