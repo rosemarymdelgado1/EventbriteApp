@@ -59,13 +59,12 @@ namespace ServiceCatalogApi.Data
              new EventItem {EventCategoryId=7, EventTypeId=5, EventLocationId=1, Title = "To Infinity and Beyond", Description = "Rocket Competition", Price = 50, Venue = "Warren G. Magnuson Park", Organizer = "Amateaur Rocket Club", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/8"},
              new EventItem {EventCategoryId=1, EventTypeId=1, EventLocationId=8, Title = "Eastside Beer Fest", Description = "Beer festival", Price = 30, Venue = "Marymoore Park", Organizer ="Brewers Association", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/9"},
 
-             /*new EventItem {EventCategoryId=2, EventTypeId=4, EventLocationId=2, Title = "Networking for Healthcare", Description = "Networking principles for healthcare", Price = 45, Venue = "UW Bothell Auditorium", Organizer = "Healthcare Association", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/10"},
+             new EventItem {EventCategoryId=2, EventTypeId=4, EventLocationId=2, Title = "Networking for Healthcare", Description = "Networking principles for healthcare", Price = 45, Venue = "UW Bothell Auditorium", Organizer = "Healthcare Association", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/10"},
              new EventItem {EventCategoryId=1, EventTypeId=8, EventLocationId=1, Title = "Pickling 101", Description = "Learn to pickle vegetables" , Price = 25, Venue = "Public Kitchen", Organizer = "Full Pantry", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/11"},
              new EventItem {EventCategoryId=6, EventTypeId=8, EventLocationId=4, Title = "80's Roller Fest", Description = "RollerSkate to 80's music" , Price = 15, Venue = "Tacoma Roller Skating" , Organizer = "Roller Skate Inc.", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/12"},
              new EventItem {EventCategoryId=4, EventTypeId=8, EventLocationId=3, Title = "Happy Hour Zumba", Description = "Zumba class followed by a yummy cocktail" , Price = 20, Venue = "Juanita Community Center", Organizer ="Zumba Zone", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/13"},
              new EventItem {EventCategoryId=5, EventTypeId=6, EventLocationId=1, Title = "A Night with the Philarmonic", Description = "Youth Orchestra" , Price = 35, Venue = "Benaroya Hall" , Organizer = "Youth Orchestra Foundation", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/14"},
-             new EventItem {EventCategoryId=7, EventTypeId=8, EventLocationId=3, Title = "Relax Your Mind", Description = "Meditation" , Price =0, Venue = "Flow Yoga Studio", Organizer ="Youth Orchestra Foundation", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/15"},
-           */
+             new EventItem {EventCategoryId=7, EventTypeId=8, EventLocationId=3, Title = "Relax Your Mind", Description = "Meditation" , Price =0, Venue = "Flow Yoga Studio", Organizer ="Youth Orchestra Foundation", PictureUrl = "http://externalcatalogbaseurltobereplaced/api/pic/15"},          
         };
 
         }
