@@ -12,7 +12,7 @@ services:
       dockerfile: Dockerfile
     environment: 
       DatabaseServer: mssqlserver
-      DatabaseName: EventCatalogDb
+      DatabaseName: ProductDb
       DatabaseUser: sa
       DatabasePassword: ProductApi(!)
       ExternalCatalogBaseUrl: http://localhost:7200
