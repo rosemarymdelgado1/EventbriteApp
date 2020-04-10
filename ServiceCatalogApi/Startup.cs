@@ -39,7 +39,7 @@ namespace ServiceCatalogApi
             var database = Configuration["DatabseName"];
             var user = Configuration["DatabaseUser"];
             var password = Configuration["DatabasePassword"];
-            var connectionString = $"Server={server};Database={database};User Id={user};Password={password}";
+            var connectionString = $"Server={server}; Database={database}; User Id={user}; Password={password}";
             services.AddDbContext<CatalogContext>(options =>
                         options.UseSqlServer(connectionString));
         }
