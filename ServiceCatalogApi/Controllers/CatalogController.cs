@@ -25,6 +25,9 @@ namespace ServiceCatalogApi.Controllers
             _config = config;
         }
 
+        [HttpGet]
+        [Route("[action]")]
+
         public async Task<IActionResult> Items([FromQuery] int pageindex = 0, [FromQuery]int pagesize = 6)
         {
             var itemcount = await _context.eventitem.LongCountAsync(); //eventitem name comes from CatalogContext

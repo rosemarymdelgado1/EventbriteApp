@@ -16,7 +16,7 @@ namespace ServiceCatalogApi
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            using(var scope = host.Services.CreateScope())
+            using (var scope = host.Services.CreateScope())
             {
                 var serviceProvider = scope.ServiceProvider;
                 var context = serviceProvider.GetRequiredService<CatalogContext>();
