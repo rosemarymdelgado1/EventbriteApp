@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace ServiceCatalogApi.Domain
 {
-    public class EventLocation
+    public class EventType
     {
         public int Id { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
+        public string Type { get; set; }
+
     }
 }

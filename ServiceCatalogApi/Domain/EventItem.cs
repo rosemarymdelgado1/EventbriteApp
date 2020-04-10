@@ -12,11 +12,14 @@ namespace ServiceCatalogApi.Domain
         public string Description { get; set; }
         public decimal Price { get; set; }
         public DateTime EventDateTime { get; set; }
+        public string Venue { get; set; }
         public string Organizer { get; set; }
         public string PictureUrl { get; set; }
         public int EventCategoryId { get; set; }
+        public int EventTypeId { get; set; }
         public int EventLocationId { get; set; }
         public virtual EventCategory EventCategory { get; set; }
+        public virtual EventType EventType { get; set; }
         public virtual EventLocation EventLocation { get; set; }
     }
 }
