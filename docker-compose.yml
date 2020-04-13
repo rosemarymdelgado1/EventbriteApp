@@ -12,9 +12,9 @@ services:
       dockerfile: Dockerfile
     environment: 
       DatabaseServer: mssqlserver
-      DatabaseName: EventsDb
+      DatabaseName: ProductDb
       DatabaseUser: sa
-      DatabasePassword: Olive!123sql
+      DatabasePassword: Product(!)
       ExternalCatalogBaseUrl: http://localhost:7200
     ports:
       - "7200:80"
@@ -26,12 +26,12 @@ services:
       - mssqlserver
 
   mssqlserver:
-    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    image: "microsoft/mssql-server-linux:latest"
     environment:
       ACCEPT_EULA: Y 
-      SA_PASSWORD: Olive!123sql
+      SA_PASSWORD: Product(!)
     ports:
-      - "11433:1433"
+      - "1600:1433"
     container_name: eventssqlserver
     networks:
       - backend

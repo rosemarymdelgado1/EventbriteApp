@@ -69,7 +69,7 @@ namespace ServiceCatalogApi.Controllers
             return NoContent();
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<EventItem>> DeleteEvent(int id)
         {
             var eventItem = _context.eventitem.Find(id);
