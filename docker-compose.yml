@@ -14,7 +14,7 @@ services:
       DatabaseServer: mssqlserver
       DatabaseName: ProductDb
       DatabaseUser: sa
-      DatabasePassword: Product(!)
+      DatabasePassword: ProductApi(!)
       ExternalCatalogBaseUrl: http://localhost:7200
     ports:
       - "7200:80"
@@ -29,7 +29,7 @@ services:
     image: "microsoft/mssql-server-linux:latest"
     environment:
       ACCEPT_EULA: Y 
-      SA_PASSWORD: Product(!)
+      SA_PASSWORD: ProductApi(!)
     ports:
       - "1600:1433"
     container_name: eventssqlserver
