@@ -12,10 +12,16 @@ namespace ServiceCatalogApi.Data
             context.Database.Migrate();
             if (!context.eventcategory.Any())
             {
+                System.Console.WriteLine("Adding data - seeding...");
                 context.eventcategory.AddRange(GetPreconfiguredeventcategory());
 
                 context.SaveChanges();
             }
+            else
+            {
+                System.Console.WriteLine("Already have data - not seeding!");
+            }
+            
 
             if (!context.eventlocation.Any())
             {
@@ -37,10 +43,6 @@ namespace ServiceCatalogApi.Data
 
                 context.SaveChanges();
             }
-
-
-
-
         }
 
 

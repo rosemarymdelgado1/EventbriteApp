@@ -45,6 +45,42 @@ namespace ServiceCatalogApi.Controllers
             return Ok(model);
 
         }
+
+        [HttpPost]
+        public async Task<ActionResult<EventItem>> PostEvent(EventItem eventItem)
+        {
+            _context.eventitem.Add(eventItem);
+            var result = await _context.SaveChangesAsync();
+
+            return Ok(eventItem);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<EventItem>> UpdateEvent(int id, EventItem eventItem)
+        {
+            if(id != eventItem.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(eventItem).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete("id")]
+        public async Task<ActionResult<EventItem>> DeleteEvent(int id)
+        {
+            var eventItem = _context.eventitem.Find(id);
+            if(eventItem == null)
+            {
+                return NotFound();
+            }
+            _context.eventitem.Remove(eventItem);
+            _context.SaveChanges();
+            return eventItem;
+        }
         private List<EventItem> ChangePictureUrl(List<EventItem> items)
         {
             //since strings are immutable so after replacing we are putting replaced url in same variable ie PictureUrl
