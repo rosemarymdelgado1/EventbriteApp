@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ServiceCatalogApi.Data;
+using Microsoft.OpenApi.Models;
 
 namespace ServiceCatalogApi
 {
@@ -36,12 +37,22 @@ namespace ServiceCatalogApi
         {
             services.AddControllers();
             var server = Configuration["DatabaseServer"];
-            var database = Configuration["DatabseName"];
+            var database = Configuration["DatabaseName"];
             var user = Configuration["DatabaseUser"];
             var password = Configuration["DatabasePassword"];
-            var connectionString = $"Server={server}; Database={database}; User Id={user}; Password={password}";
+            var connectionString = $"Server={server}; Initial Catalog={database}; User Id={user}; Password={password}";
             services.AddDbContext<CatalogContext>(options =>
                         options.UseSqlServer(connectionString));
+            services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Event Catalog Api",
+                    Version = "v1",
+                    Description = "Event catalog microservice"
+                });
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +66,11 @@ namespace ServiceCatalogApi
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eventbrite Api V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

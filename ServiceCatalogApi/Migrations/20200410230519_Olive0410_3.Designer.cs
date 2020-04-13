@@ -10,8 +10,8 @@ using ServiceCatalogApi.Data;
 namespace ServiceCatalogApi.Migrations
 {
     [DbContext(typeof(CatalogContext))]
-    [Migration("20200406034442_initial")]
-    partial class initial
+    [Migration("20200410230519_Olive0410_3")]
+    partial class Olive0410_3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
