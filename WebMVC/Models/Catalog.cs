@@ -7,5 +7,9 @@ namespace WebMVC.Models
 {
     public class Catalog
     {
+        public int PageSize { get; set; }
+        public int PageIndex { get; set; }
+        public long Count { get; set; }
+        public List<EventItem> Data { get; set; }
     }
 }
