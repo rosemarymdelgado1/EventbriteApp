@@ -3,14 +3,11 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["WebMVC/WebMVC.csproj", "WebMVC/"]
-RUN dotnet restore "WebMVC/WebMVC.csproj"
-COPY . .
-WORKDIR "/src/WebMVC"
+COPY . . 
+RUN dotnet restore "WebMVC.csproj"
 RUN dotnet build "WebMVC.csproj" -c Release -o /app/build
 
 FROM build AS publish
