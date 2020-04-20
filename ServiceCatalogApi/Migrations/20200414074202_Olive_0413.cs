@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ServiceCatalogApi.Migrations
 {
-    public partial class Olive0410_3 : Migration
+    public partial class Olive_0413 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
