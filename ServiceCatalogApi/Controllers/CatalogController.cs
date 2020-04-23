@@ -28,17 +28,32 @@ namespace ServiceCatalogApi.Controllers
         [HttpGet]
         [Route("[action]")]
 
-        public async Task<IActionResult> Items([FromQuery] int pageindex = 0, [FromQuery]int pagesize = 6)
+        public async Task<IActionResult> Items(
+            [FromQuery]int eventCategoryId = 0,
+            [FromQuery]int eventTypeId = 0,
+            [FromQuery] int pageindex = 0, 
+            [FromQuery]int pagesize = 6)
         {
-            var itemcount = await _context.eventitem.LongCountAsync(); //eventitem name comes from CatalogContext
-            var items = await _context.eventitem.Skip(pageindex * pagesize).Take(pagesize).ToListAsync();
+            var root = (IQueryable<EventItem>)_context.eventitem;
+            if (eventCategoryId != 0)
+            {
+                root = root.Where(c => c.EventCategoryId == eventCategoryId);
+            }
+            if (eventTypeId != 0)
+            {
+                root = root.Where(c => c.EventTypeId == eventTypeId);
+            }
+
+
+            var itemsCount = await root.LongCountAsync();
+            var items = await root.OrderBy(c=>c.Title).Skip(pageindex * pagesize).Take(pagesize).ToListAsync();
             items = ChangePictureUrl(items); // as in postman we are not able to see actual pictures
 
             var model = new PaginatedItemViewModel<EventItem>
             {
                 PageIndex = pageindex,
                 PageSize = pagesize,
-                Count = itemcount,
+                Count = itemsCount,
                 Data = items
             };
             //return Ok(items)

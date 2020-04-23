@@ -15,9 +15,9 @@ namespace WebMVC.Infrastructure
                 var filterQs = string.Empty;
                 if (category != 0 || type != 0)
                 {
-                    var categoryQs = (category != 0) ? "eventTypeId=" + category : "";
-                    var typeQs = (type != 0) ? "eventCategoryId=" + type : "";
-                    filterQs = $"{typeQs}&{categoryQs}";
+                    var categoryQs = (category != 0) ? "eventCategoryId=" + category : "";
+                    var typeQs = (type != 0) ? "eventTypeId=" + type : "";
+                    filterQs = $"{categoryQs}&{typeQs}";
                 }
                 return $"{baseUri}items?{filterQs}&pageIndex={page}&pageSize={take}";
             }
