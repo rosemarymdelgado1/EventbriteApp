@@ -43,13 +43,15 @@ namespace ServiceCatalogApi
             var connectionString = $"Server={server}; Initial Catalog={database}; User Id={user}; Password={password}";
             services.AddDbContext<CatalogContext>(options =>
                         options.UseSqlServer(connectionString));
-            services.AddSwaggerGen(option =>
+
+            services.AddSwaggerGen(options =>
             {
-                option.SwaggerDoc("v1", new OpenApiInfo
+                //options.DescribeAllEnumsAsStrings();
+                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
-                    Title = "Event Catalog Api",
+                    Title = "Eventbrite - Service Catalog API",
                     Version = "v1",
-                    Description = "Event catalog microservice"
+                    Description = "Event catalog microservice",
                 });
             });
             
@@ -66,10 +68,11 @@ namespace ServiceCatalogApi
             app.UseRouting();
 
             app.UseAuthorization();
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eventbrite Api V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceCatalogApi V1");
             });
 
             app.UseEndpoints(endpoints =>
