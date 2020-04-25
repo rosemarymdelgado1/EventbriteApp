@@ -31,7 +31,7 @@ namespace ServiceCatalogApi.Controllers
         public async Task<IActionResult> Items(
             [FromQuery]int eventCategoryId = 0,
             [FromQuery]int eventTypeId = 0,
-            [FromQuery] int pageindex = 0, 
+            [FromQuery]int pageindex = 0, 
             [FromQuery]int pagesize = 6)
         {
             var root = (IQueryable<EventItem>)_context.eventitem;
