@@ -51,7 +51,7 @@ services:
       MvcClient: http://localhost:5220
     ports:
       - "6500:80"
-    container_name: tokenserviceapi
+    container_name: tokeneventapi
     networks:
       - backend
       - frontend
