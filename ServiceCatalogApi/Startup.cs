@@ -53,6 +53,7 @@ namespace ServiceCatalogApi
                     Version = "v1",
                     Description = "Event catalog microservice",
                 });
+                options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
             
         }
