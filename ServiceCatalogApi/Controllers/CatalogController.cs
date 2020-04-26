@@ -31,6 +31,7 @@ namespace ServiceCatalogApi.Controllers
         public async Task<IActionResult> Items(
             [FromQuery]int eventCategoryId = 0,
             [FromQuery]int eventTypeId = 0,
+            [FromQuery]int eventLocationId = 0,
             [FromQuery]int pageindex = 0, 
             [FromQuery]int pagesize = 6)
         {
@@ -42,6 +43,10 @@ namespace ServiceCatalogApi.Controllers
             if (eventTypeId != 0)
             {
                 root = root.Where(c => c.EventTypeId == eventTypeId);
+            }
+            if (eventLocationId != 0)
+            {
+                root = root.Where(c => c.EventLocationId == eventLocationId);
             }
 
 
@@ -116,6 +121,14 @@ namespace ServiceCatalogApi.Controllers
         public async Task<IActionResult> EventCategories()
         {
             var items = await _context.eventcategory.ToListAsync();
+            return Ok(items);
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> EventLocations()
+        {
+            var items = await _context.eventlocation.ToListAsync();
             return Ok(items);
         }
     }

@@ -23,10 +23,10 @@ namespace WebMVC.Services
         }
 
         public async Task<Catalog> GetCatalogItemsAsync(int page, int size,
-            int category, int type)
+            int category, int type,int location)
         {
             var catalogItemsUri = ApiPaths.Catalog.GetAllEventItems(_baseUri,
-                                    page, size, category, type);
+                                    page, size, category, type,location);
             var dataString = await _client.GetStringAsync(catalogItemsUri);
             return JsonConvert.DeserializeObject<Catalog>(dataString);
         }
@@ -80,6 +80,34 @@ namespace WebMVC.Services
                     {
                         Value = category.Value<string>("id"),
                         Text = category.Value<string>("category")
+                    }
+                );
+            }
+
+            return items;
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetLocationsAsync()
+        {
+            var brandUri = ApiPaths.Catalog.GetAllLocations(_baseUri);
+            var dataString = await _client.GetStringAsync(brandUri);
+            var items = new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Value=null,
+                    Text="All",
+                    Selected = true
+                }
+            };
+            var locations = JArray.Parse(dataString);
+            foreach (var location in locations)
+            {
+                items.Add(
+                    new SelectListItem
+                    {
+                        Value = location.Value<string>("id"),
+                        Text = location.Value<string>("city")
                     }
                 );
             }

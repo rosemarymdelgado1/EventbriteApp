@@ -10,14 +10,15 @@ namespace WebMVC.Infrastructure
         public static class Catalog
         {
             public static string GetAllEventItems(string baseUri,
-                int page, int take, int category, int type)
+                int page, int take, int category, int type,int location)
             {
                 var filterQs = string.Empty;
-                if (category != 0 || type != 0)
+                if (category != 0 || type != 0|| location != 0 )
                 {
                     var categoryQs = (category != 0) ? "eventCategoryId=" + category : "";
                     var typeQs = (type != 0) ? "eventTypeId=" + type : "";
-                    filterQs = $"{categoryQs}&{typeQs}";
+                    var locationQs = (location != 0) ? "eventLocationId=" + location : "";
+                    filterQs = $"{categoryQs}&{typeQs}&{locationQs}";
                 }
                 return $"{baseUri}items?{filterQs}&pageIndex={page}&pageSize={take}";
             }
@@ -29,6 +30,11 @@ namespace WebMVC.Infrastructure
             public static string GetAllCategories(string baseUri)
             {
                 return $"{baseUri}eventcategories";
+            }
+
+            public static string GetAllLocations(string baseUri)
+            {
+                return $"{baseUri}eventlocations";
             }
         }
         public static class Basket

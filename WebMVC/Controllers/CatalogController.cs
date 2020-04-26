@@ -17,12 +17,12 @@ namespace WebMVC.Controllers
             _service = service;
         }
         public async Task<IActionResult> Index(int? page, int categoriesFilterApplied,
-            int typesFilterApplied)
+            int typesFilterApplied,int locationsFilterApplied)
         {
             var itemsOnPage = 10;
 
             var catalog = await _service.GetCatalogItemsAsync(page ?? 0, itemsOnPage,
-                categoriesFilterApplied, typesFilterApplied);
+                categoriesFilterApplied, typesFilterApplied,locationsFilterApplied);
             var vm = new CatalogIndexViewModel
             {
                 CatalogItems = catalog.Data,
@@ -35,8 +35,10 @@ namespace WebMVC.Controllers
                 },
                 Categories = await _service.GetCategoriesAsync(),
                 Types = await _service.GetTypesAsync(),
+                Locations = await _service.GetLocationsAsync(),
                 CategoriesFilterApplied = categoriesFilterApplied,
-                TypesFilterApplied = typesFilterApplied
+                TypesFilterApplied = typesFilterApplied,
+                LocationsFilterApplied = locationsFilterApplied
             };
 
             return View(vm);
