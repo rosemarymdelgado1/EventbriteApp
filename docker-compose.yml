@@ -15,7 +15,7 @@ services:
       DatabaseName: ProductDb
       DatabaseUser: sa
       DatabasePassword: ProductApi(!)
-      ExternalCatalogBaseUrl: http://localhost:7201
+      ExternalCatalogBaseUrl: http://localhost:7200
     ports:
       - "7200:80"
     container_name: eventscatalogapi
