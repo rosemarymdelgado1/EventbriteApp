@@ -1,14 +1,32 @@
 ﻿@model WebMVC.Models.EventItem
-<form asp-controller="Cart" asp-action="AddToCart">
-    <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" />
-    <div class="esh-catalog-name">
-        <span>@Model.Title</span>
-    </div>
-    <div class="esh-catalog-location">
-        <span>@Model.EventLocation</span>
-    </div>
-    <div class="esh-catalog-time">
-        <span>@Model.EventDateTime</span>
-    </div>
-    <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
-</form>
+    <form asp-controller="Cart" asp-action="AddToCart">
+        <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" />
+        <div class="esh-catalog-name">
+            <span>@Model.Title</span>
+        </div>
+        <div class="esh-catalog-location">
+            <span>@Model.Venue</span>
+        </div>
+        <div class="esh-catalog-location">
+            <span>@Model.Date</span>
+        </div>
+        <div class="esh-catalog-time">
+            <span>@Model.Time</span>
+        </div>
+        <div class="esh-catalog-price">
+            <span>@Model.Price.ToString("N2")</span>
+        </div>
+        <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
+        <input type="hidden" asp-for="@Model.EventCategory" name="category" />
+        <input type="hidden" asp-for="@Model.EventCategoryId" name="categoryId" />
+        <input type="hidden" asp-for="@Model.EventLocation" name="location" />-->
+        <input type="hidden" asp-for="@Model.EventLocationId" name="locationId" />
+        <input type="hidden" asp-for="@Model.Description" name="description" />
+        <input type="hidden" asp-for="@Model.Id" name="id" />
+        <input type="hidden" asp-for="@Model.Title" name="name" />
+        <input type="hidden" asp-for="@Model.PictureUrl" name="pictureUrl" />
+        <input type="hidden" asp-for="@Model.Price" name="price" />
+        <!-- <input type="hidden" asp-for="@Model.Venue" name="venue" />-->
+        <input type="hidden" asp-for="@Model.Organizer" name="organizer" />
+        <input type="hidden" asp-for="@Model.EventType" name="eventtype" />
+    </form>

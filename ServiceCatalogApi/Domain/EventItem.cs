@@ -11,7 +11,9 @@ namespace ServiceCatalogApi.Domain
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public DateTime EventDateTime { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
+
         public string Venue { get; set; }
         public string Organizer { get; set; }
         public string PictureUrl { get; set; }

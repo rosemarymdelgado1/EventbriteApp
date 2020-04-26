@@ -29,9 +29,11 @@ namespace WebMVC.Controllers
                 PaginationInfo = new PaginationInfo
                 {
                     ActualPage = page ?? 0,
-                    ItemsPerPage = itemsOnPage,
+                    //ItemsPerPage = itemsOnPage,
+                    ItemsPerPage = Math.Min(itemsOnPage, (int)catalog.Count),
                     TotalItems = catalog.Count,
                     TotalPages = (int)Math.Ceiling((decimal)catalog.Count / itemsOnPage)
+                    
                 },
                 Categories = await _service.GetCategoriesAsync(),
                 Types = await _service.GetTypesAsync(),

@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ServiceCatalogApi.Migrations
 {
-    public partial class Olive_0413 : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,7 +67,8 @@ namespace ServiceCatalogApi.Migrations
                     Title = table.Column<string>(maxLength: 100, nullable: false),
                     Description = table.Column<string>(maxLength: 100, nullable: false),
                     Price = table.Column<decimal>(nullable: false),
-                    EventDateTime = table.Column<DateTime>(nullable: false),
+                    Date = table.Column<string>(nullable: false),
+                    Time = table.Column<string>(nullable: false),
                     Venue = table.Column<string>(maxLength: 100, nullable: false),
                     Organizer = table.Column<string>(maxLength: 100, nullable: false),
                     PictureUrl = table.Column<string>(nullable: true),

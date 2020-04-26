@@ -51,7 +51,8 @@ namespace ServiceCatalogApi.Data
                 e.Property(i => i.Organizer).IsRequired().HasMaxLength(100);
                 e.Property(i => i.Price).IsRequired();
                 e.Property(i => i.Description).IsRequired().HasMaxLength(100);
-                e.Property(i => i.EventDateTime).IsRequired();
+                e.Property(i => i.Date).IsRequired();
+                e.Property(i => i.Time).IsRequired();
                 e.HasOne(i => i.EventCategory).WithMany().HasForeignKey(i => i.EventCategoryId);
                 e.HasOne(i => i.EventLocation).WithMany().HasForeignKey(i => i.EventLocationId);
                 e.HasOne(i => i.EventType).WithMany().HasForeignKey(i => i.EventTypeId);
