@@ -11,18 +11,20 @@
 }
 
 .esh-catalog-filters {
-    background-color: #00A69C;
+    background-color: #efeded;
+    /*background-color: #00A69C;*/
     height: 65px;
 }
 
 .esh-catalog-filter {
     background-color: transparent;
-    border-color: #00d9cc;
-    color: #FFFFFF;
+    /*border-color: #00d9cc;*/
+    border-color: #ffffff;
+    color: #787575;
     cursor: pointer;
     margin-right: 1rem;
     margin-top: .5rem;
-    outline-color: #83D01B;
+    outline-color: #83a7c3;
     padding-bottom: 0;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -32,7 +34,8 @@
 }
 
     .esh-catalog-filter option {
-        background-color: #00A69C;
+        background-color: #e6e0e0;
+        /*background-color: #00A69C;*/
     }
 
 .esh-catalog-label {
@@ -64,7 +67,7 @@
     }
 
 .esh-catalog-send {
-    background-color: #83D01B;
+    background-color: #a1c9e8;
     color: #FFFFFF;
     cursor: pointer;
     font-size: 1rem;
@@ -74,7 +77,7 @@
 }
 
     .esh-catalog-send:hover {
-        background-color: #4a760f;
+        background-color: #76a5ca;
         transition: all 0.35s;
     }
 
@@ -108,7 +111,8 @@
 }
 
 .esh-catalog-button {
-    background-color: #83D01B;
+    background-color: #a1c9e8;
+    /*background-color: #83D01B;*/
     border: none;
     color: #FFFFFF;
     cursor: pointer;
@@ -124,7 +128,7 @@
     }
 
     .esh-catalog-button:hover {
-        background-color: #4a760f;
+        background-color: #76a5ca;
         transition: all 0.35s;
     }
 

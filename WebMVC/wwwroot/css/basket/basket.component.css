@@ -41,7 +41,7 @@
 }
 
 .esh-basket-item--mark {
-    color: #00A69C;
+    color: #e8e4e4;
 }
 
 .esh-basket-image {
@@ -56,7 +56,7 @@
 .esh-basket-checkout {
     border: none;
     border-radius: 0;
-    background-color: #83D01B;
+    background-color: #dad5d5;
     color: #FFFFFF;
     display: inline-block;
     font-size: 1rem;
