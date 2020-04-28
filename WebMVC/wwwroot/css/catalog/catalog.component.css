@@ -11,7 +11,7 @@
 }
 
 .esh-catalog-filters {
-    background-color: #efeded;
+    background-color: #ffffff;
     /*background-color: #00A69C;*/
     height: 65px;
 }
@@ -19,8 +19,8 @@
 .esh-catalog-filter {
     background-color: transparent;
     /*border-color: #00d9cc;*/
-    border-color: #ffffff;
-    color: #787575;
+    border-color: #d9edf7;
+    color: #333;
     cursor: pointer;
     margin-right: 1rem;
     margin-top: .5rem;
@@ -34,7 +34,7 @@
 }
 
     .esh-catalog-filter option {
-        background-color: #e6e0e0;
+        background-color: #ffffff;
         /*background-color: #00A69C;*/
     }
 
@@ -45,7 +45,7 @@
 }
 
     .esh-catalog-label::before {
-        color: rgba(255, 255, 255, 0.5);
+        color: #777);
         content: attr(data-title);
         font-size: 0.65rem;
         margin-top: 0.65rem;
