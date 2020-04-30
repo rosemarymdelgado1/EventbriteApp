@@ -19,7 +19,7 @@ namespace WebMVC.Controllers
         public async Task<IActionResult> Index(int? page, int categoriesFilterApplied,
             int typesFilterApplied,int locationsFilterApplied)
         {
-            var itemsOnPage = 10;
+            var itemsOnPage = 9;
 
             var catalog = await _service.GetCatalogItemsAsync(page ?? 0, itemsOnPage,
                 categoriesFilterApplied, typesFilterApplied,locationsFilterApplied);
