@@ -37,8 +37,8 @@ namespace ServiceCatalogApi.Data
             {
                 e.ToTable("eventlocation");
                 e.Property(l => l.Id).IsRequired().UseHiLo("eventlocationhilo");
-                e.Property(l => l.City).IsRequired().HasMaxLength(100);
-                e.Property(l => l.State).IsRequired().HasMaxLength(100);
+                e.Property(l => l.City).HasMaxLength(100);
+                e.Property(l => l.State).HasMaxLength(100);
 
             });
 
@@ -48,9 +48,9 @@ namespace ServiceCatalogApi.Data
                 e.Property(i => i.Id).IsRequired().UseHiLo("eventitemhilo");
                 e.Property(i => i.Title).IsRequired().HasMaxLength(100);
                 e.Property(i => i.Venue).IsRequired().HasMaxLength(100);
-                e.Property(i => i.Organizer).IsRequired().HasMaxLength(100);
-                e.Property(i => i.Price).IsRequired();
-                e.Property(i => i.Description).IsRequired().HasMaxLength(100);
+                e.Property(i => i.Organizer).HasMaxLength(100);
+                e.Property(i => i.Price);
+                e.Property(i => i.Description).HasMaxLength(100);
                 e.Property(i => i.EventDateTime).IsRequired();
                 e.HasOne(i => i.EventCategory).WithMany().HasForeignKey(i => i.EventCategoryId);
                 e.HasOne(i => i.EventLocation).WithMany().HasForeignKey(i => i.EventLocationId);

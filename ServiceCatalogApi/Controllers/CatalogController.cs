@@ -66,8 +66,16 @@ namespace ServiceCatalogApi.Controllers
         {
             _context.eventitem.Add(eventItem);
             var result = await _context.SaveChangesAsync();
+            if (result > 0)
+            {
+                return Ok(eventItem);
+            }
+            else
+            {
+                return NoContent();
+            }
 
-            return Ok(eventItem);
+            
         }
 
         [HttpPut("{id}")]

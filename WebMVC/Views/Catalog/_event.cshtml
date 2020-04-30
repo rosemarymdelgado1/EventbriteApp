@@ -1,14 +1,16 @@
 ﻿@model WebMVC.Models.EventItem
-<form asp-controller="Cart" asp-action="AddToCart">
-    <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" />
-    <div class="esh-catalog-name">
-        <span>@Model.Title</span>
-    </div>
-    <div class="esh-catalog-location">
-        <span>@Model.EventLocation</span>
-    </div>
-    <div class="esh-catalog-time">
-        <span>@Model.EventDateTime</span>
-    </div>
-    <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
-</form>
+    <form asp-controller="Cart" asp-action="AddToCart">
+        @*<img class="esh-catalog-thumbnail" src="@Model.PictureUrl" />*@
+        
+        <img class="esh-catalog-thumbnail" src="http://localhost:7200/api/pic/12" />
+        <div class="esh-catalog-name">
+            <span>@Model.Title</span>
+        </div>
+        <div class="esh-catalog-location">
+            <span>@Model.EventLocation</span>
+        </div>
+        <div class="esh-catalog-time">
+            <span>@Model.EventDateTime</span>
+        </div>
+        <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
+    </form>

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebMVC.Models;
 using WebMVC.Services;
 using WebMVC.ViewModels;
+
 
 namespace WebMVC.Controllers
 {
@@ -49,6 +51,26 @@ namespace WebMVC.Controllers
 
 
             return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Create([Bind(Prefix = "EventItem")] EventItem eventItem)
+        {
+            if (ModelState.IsValid && eventItem.Title != null)
+            {
+                var result = await _service.PostCatalogItemAsync(eventItem);
+                return RedirectToAction("Index", new { categoriesFilterApplied=0, typesFilterApplied=0 });
+            }
+            else
+            {
+                var vm = new CreateEventViewModel
+                {
+                    Types = await _service.GetTypesAsync(),
+                    Categories = await _service.GetCategoriesAsync(),
+                    EventItem = eventItem
+                };
+                return View(vm);
+            }
         }
     }
 }

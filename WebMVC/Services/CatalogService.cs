@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using WebMVC.Infrastructure;
 using WebMVC.Models;
@@ -85,6 +86,13 @@ namespace WebMVC.Services
             }
 
             return items;
+        }
+
+        public async Task<HttpResponseMessage> PostCatalogItemAsync<EventItem>(EventItem newEventItem)
+        {
+                var postUri = _baseUri;
+                var message = await _client.PostAsync(postUri, newEventItem);
+                return message;
         }
     }
 }

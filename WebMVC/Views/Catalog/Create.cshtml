@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Create Event";
+    @model WebMVC.ViewModels.CreateEventViewModel
+}
+
+<h1>Create Event</h1>
+<form>
+    <div class="form-group">
+        <label>Event Name</label>
+        <input type="text" asp-for="EventItem.Title">
+    </div>
+    @*<div class="form-group">
+             <select asp-items="@(new SelectList(Model.catalogItems,"Id","EventTypeId"))">
+                 <option value="" selected disabled> -- select event type --</option>
+
+             </select>
+        </div>*@
+    <div class="form-group">
+        <label data-title="category">
+            <select asp-for="EventItem.EventCategoryId" asp-items="@Model.Categories"></select>
+        </label>
+    </div>
+    <div class="form-group">
+        <label data-title="type">
+            <select asp-for="EventItem.EventTypeId" asp-items="@Model.Types"></select>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" asp-for="EventItem.EventLocationId" />
+        <input type="text" asp-for="EventItem.Venue" />
+    </div>
+    <div class="form-group">
+        <label>Date and time</label>
+        <input type="datetime-local" min="2020-03-01" max="2022-12-31" asp-for="EventItem.EventDateTime" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create Event" />
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
+
