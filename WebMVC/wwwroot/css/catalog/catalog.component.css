@@ -171,10 +171,10 @@
     
 }
 
-    .esh-catalog-price::before {
+    /*.esh-catalog-price::before {
         content: '$';
         font-size: medium;
         font-weight: normal;
         color: black
 
-    }
+    }*/

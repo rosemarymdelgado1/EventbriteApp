@@ -23,9 +23,20 @@
     </div>-->
 
 
-        <div class="esh-catalog-price">
-            <span style="font-size: medium">@Model.Price.ToString("N2")</span>
-        </div>
+    <div class="esh-catalog-price">
+        @if (Model.Price.ToString("N2").Equals("0.00"))
+        {
+        <span style="font-size: medium">
+            Free
+        </span>
+        }
+        else
+        {
+    <span style="font-size: medium">$@Model.Price.ToString("N2")</span>
+        }
+
+
+    </div>
         
         <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
         
