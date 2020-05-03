@@ -1,6 +1,7 @@
 # EventfulApp
  
-Eventbrite Web App links 
+Eventful Web App links 
+
 Swagger UI
 http://localhost:7200/swagger/index.html
 
