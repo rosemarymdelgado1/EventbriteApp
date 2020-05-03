@@ -1,6 +1,7 @@
 ﻿@model WebMVC.Models.EventItem
     <form asp-controller="Cart" asp-action="AddToCart">
-        <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" style="height : 250px; width : 330px;" />
+        <img class="esh-
+             -thumbnail" src="@Model.PictureUrl" style="height : 250px; width : 330px;" />
         
         <div class="esh-catalog-name">
             <span style="font-size:larger; font-weight: bold">@Model.Title</span>
@@ -38,7 +39,7 @@
 
     </div>
         
-        <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
+        <input class="esh-catalog-button" type="submit" value="Register" />
         
         <input type="hidden" asp-for="@Model.EventCategory" name="category" />
         <input type="hidden" asp-for="@Model.EventCategoryId" name="categoryId" />

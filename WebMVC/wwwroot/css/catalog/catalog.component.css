@@ -34,10 +34,10 @@
     -webkit-appearance: none;
 }
 
-    .esh-catalog-filter option {
+.esh-catalog-filter option {
         background-color: #6666ff;
         /*background-color: #00A69C;*/
-    }
+}
 
 .esh-catalog-label {
     display: inline-block;
@@ -78,7 +78,7 @@
 }
 
     .esh-catalog-send:hover {
-        background-color: #76a5ca;
+        background-color: #0099ff;
         transition: all 0.35s;
     }
 
@@ -123,13 +123,14 @@
     transition: all 0.35s;
     width: 80%;
 }
-    .esh-catalog-button.is-disabled {
+
+.esh-catalog-button.is-disabled {
         opacity: .5;
         pointer-events: none;
-    }
+}
 
     .esh-catalog-button:hover {
-        background-color: #76a5ca;
+        background-color: #0099ff;
         transition: all 0.35s;
     }
 
@@ -155,7 +156,7 @@
     font-weight: bold;
     margin-top: .3rem;
     text-align: center;
-    color: #884dff;
+    color: #6666ff;
     display: inline-block;
 }
 
