@@ -33,7 +33,7 @@ namespace ServiceCatalogApi.Controllers
             [FromQuery]int eventTypeId = 0,
             [FromQuery]int eventLocationId = 0,
             [FromQuery]int pageindex = 0, 
-            [FromQuery]int pagesize = 6)
+            [FromQuery]int pagesize = 9)
         {
             var root = (IQueryable<EventItem>)_context.eventitem;
             if (eventCategoryId != 0)

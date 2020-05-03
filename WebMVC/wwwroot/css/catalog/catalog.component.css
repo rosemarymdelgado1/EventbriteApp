@@ -11,7 +11,8 @@
 }
 
 .esh-catalog-filters {
-    background-color: #ffffff;
+    background-color: #6666ff;
+    color:white;
     /*background-color: #00A69C;*/
     height: 65px;
 }
@@ -20,7 +21,7 @@
     background-color: transparent;
     /*border-color: #00d9cc;*/
     border-color: #d9edf7;
-    color: #333;
+    color: white;
     cursor: pointer;
     margin-right: 1rem;
     margin-top: .5rem;
@@ -34,7 +35,7 @@
 }
 
     .esh-catalog-filter option {
-        background-color: #ffffff;
+        background-color: #6666ff;
         /*background-color: #00A69C;*/
     }
 
@@ -67,7 +68,7 @@
     }
 
 .esh-catalog-send {
-    background-color: #a1c9e8;
+    background-color: #6666ff;
     color: #FFFFFF;
     cursor: pointer;
     font-size: 1rem;
@@ -111,7 +112,7 @@
 }
 
 .esh-catalog-button {
-    background-color: #a1c9e8;
+    background-color: #6666ff;
     /*background-color: #83D01B;*/
     border: none;
     color: #FFFFFF;
@@ -137,7 +138,7 @@
     font-weight: 300;
     margin-top: .5rem;
     text-align: center;
-    text-transform: uppercase;
+    color: black;
 }
 
 .esh-catalog-location {
@@ -145,24 +146,35 @@
     font-weight: 200;
     margin-top: .5rem;
     text-align: center;
-    color: #808080;
+    color: black;
 }
 
-.esh-catalog-time {
+
+.esh-catalog-datetime {
     font-size: 0.7rem;
-    font-weight: 200;
+    font-weight: bold;
     margin-top: .3rem;
     text-align: center;
-    color: #808080;
+    color: #884dff;
+    display: inline-block;
+}
+
+.esh-catalog-datetime :not(:last-of-type)::after {
+        content: ", ";
 }
 
 .esh-catalog-price {
     text-align: center;
-    font-weight: 900;
-    font-size: 28px;
+    font-weight: normal;
+    font-size: medium;
+    color: black
     
 }
 
-    .esh-catalog-price::before {
+/*.esh-catalog-price::before {
         content: '$';
-    }
+        font-size: medium;
+        font-weight: normal;
+        color: black
+
+ }*/

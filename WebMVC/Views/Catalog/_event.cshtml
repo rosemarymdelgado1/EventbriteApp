@@ -1,25 +1,48 @@
 ﻿@model WebMVC.Models.EventItem
     <form asp-controller="Cart" asp-action="AddToCart">
-        <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" />
+        <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" style="height : 250px; width : 330px;" />
+        
         <div class="esh-catalog-name">
-            <span>@Model.Title</span>
+            <span style="font-size:larger; font-weight: bold">@Model.Title</span>
         </div>
+        
         <div class="esh-catalog-location">
-            <span>@Model.Venue</span>
+            <span style="font-size:large">@Model.Venue</span>
         </div>
-        <div class="esh-catalog-location">
-            <span>@Model.Date</span>
-        </div>
-        <div class="esh-catalog-time">
-            <span>@Model.Time</span>
-        </div>
-        <div class="esh-catalog-price">
-            <span>@Model.Price.ToString("N2")</span>
-        </div>
+
+        <div class="esh-catalog-datetime">
+        <span style="font-size:medium">@Model.Date</span>
+        <span style="font-size:medium">@Model.Time</span>
+        </div>       
+
+        <!---<div class="esh-catalog-location">
+        <span style="font-size:medium">@Model.Date</span>
+    </div>
+    <div class="esh-catalog-time">
+        <span style="font-size:medium">@Model.Time</span>
+    </div>-->
+
+
+    <div class="esh-catalog-price">
+        @if (Model.Price.ToString("N2").Equals("0.00"))
+        {
+        <span style="font-size: medium">
+            Free
+        </span>
+        }
+        else
+        {
+    <span style="font-size: medium">$@Model.Price.ToString("N2")</span>
+        }
+
+
+    </div>
+        
         <input class="esh-catalog-button" type="submit" value="[ Save Event ]" />
+        
         <input type="hidden" asp-for="@Model.EventCategory" name="category" />
         <input type="hidden" asp-for="@Model.EventCategoryId" name="categoryId" />
-        <input type="hidden" asp-for="@Model.EventLocation" name="location" />-->
+        <input type="hidden" asp-for="@Model.EventLocation" name="location" />
         <input type="hidden" asp-for="@Model.EventLocationId" name="locationId" />
         <input type="hidden" asp-for="@Model.Description" name="description" />
         <input type="hidden" asp-for="@Model.Id" name="id" />
