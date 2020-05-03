@@ -1,6 +1,6 @@
-# EventBriteApp
+# EventbriteApp
  
-EventBrite Web App links 
+Eventbrite Web App links 
 
 Catalog UI 
 http://localhost:5220/catalog
