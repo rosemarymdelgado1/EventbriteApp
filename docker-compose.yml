@@ -29,7 +29,7 @@ services:
     build:
       context: .\CartApi
       dockerfile: Dockerfile
-    image: jewels/cartapi
+    image: event/cartapi
     logging:
       driver: "json-file"
       options:
@@ -37,7 +37,7 @@ services:
         max-file: "10"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.100.193:6500
+      IdentityUrl: http://192.168.9.81:6500
       ConnectionString: basket.data
     ports:
       - "6880:80"
@@ -99,7 +99,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CatalogUrl: http://catalog
-      IdentityUrl: http://192.168.100.193:6500
+      IdentityUrl: http://192.168.9.81:6500
       CallBackUrl: http://localhost:5220
       CartUrl: http://cart
     ports:
