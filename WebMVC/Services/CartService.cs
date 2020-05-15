@@ -14,7 +14,7 @@ using WebMVC.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using WebMVC.Models;
 using WebMVC.Models.CartModels;
-using StackExchange.Redis;
+using WebMVC.Models.OrdersModels;
 
 namespace WebMVC.Services
 {
@@ -85,9 +85,11 @@ namespace WebMVC.Services
             return response;
         }
 
-        /*public Order MapCartToOrder(Cart cart)
+        
+
+        public Models.OrdersModels.Order MapCartToOrder(Cart cart)
         {
-            var order = new Order();
+            var order = new Models.OrdersModels.Order();
             order.OrderTotal = 0;
 
             cart.Items.ForEach(x =>
@@ -105,7 +107,7 @@ namespace WebMVC.Services
             });
 
             return order;
-        }*/
+        }
 
 
         public async Task<Cart> SetQuantities(ApplicationUser user, Dictionary<string, int> quantities)
@@ -145,5 +147,7 @@ namespace WebMVC.Services
             return await context.GetTokenAsync("access_token");
           
         }
+
+        
     }
 }

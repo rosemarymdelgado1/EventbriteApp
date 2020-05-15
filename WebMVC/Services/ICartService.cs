@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebMVC.Models.CartModels;
 using WebMVC.Models;
-using StackExchange.Redis;
+using WebMVC.Models.OrdersModels;
+
 
 namespace WebMVC.Services
 {
@@ -16,6 +17,7 @@ namespace WebMVC.Services
         Task<Cart> SetQuantities(ApplicationUser user, Dictionary<string, int> quantities);
         /*Order MapCartToOrder(Cart Cart);*/
         Task ClearCart(ApplicationUser user);
+        Order MapCartToOrder(Cart Cart);
 
     }
 }
