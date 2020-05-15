@@ -74,24 +74,32 @@ namespace OrderApi
                 });
             });
 
+            
+            //for registring rabbitMq
+
             services.AddMassTransit(cfg =>
             {
+                //configuration for masstransit
                 cfg.AddBus(provider =>
                 {
                     return Bus.Factory.CreateUsingRabbitMq(rmq =>
                     {
+                        //url for rabbitMq 
                         rmq.Host(new Uri("rabbitmq://rabbitmq"), "/", h =>
                         {
                             h.Username("guest");
                             h.Password("guest");
                         });
+                        //telling that msg is fanout ie pub-sub pattern
                         rmq.ExchangeType = ExchangeType.Fanout;
+                        //msg will stay there for a day
                         MessageDataDefaults.ExtraTimeToLive = TimeSpan.FromDays(1);
                     });
 
                 });
             });
 
+            //way to start The bus ie RabbitMq
             services.AddMassTransitHostedService();
         }
 

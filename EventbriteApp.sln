@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{21276565-E44C-4DB8-B371-795C2BE49C94}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{FBA8C2C8-BC80-40AD-8FC0-B1CD415D66A8}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceCatalogApi", "ServiceCatalogApi\ServiceCatalogApi.csproj", "{E43C4C3D-1270-4984-90E0-98296BB96059}"
 EndProject

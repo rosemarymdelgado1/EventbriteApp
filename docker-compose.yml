@@ -48,6 +48,7 @@ services:
     depends_on:
       - basket.data
       - tokenserver
+      - rabbitmq
   
   order:
     build:
