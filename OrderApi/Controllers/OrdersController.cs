@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using OrderApi.Data;
-//using Common.Messaging;
+using Common.Messaging;
 using OrderApi.Models;
 
 namespace OrderApi.Controllers
@@ -30,7 +30,7 @@ namespace OrderApi.Controllers
         public OrdersController(OrdersContext ordersContext,
             ILogger<OrdersController> logger,
             IConfiguration config
-            , IPublishEndpoint bus
+            , IPublishEndpoint bus    //injecting RabbitMQ and telling Orderapi is publisher
             )
         {
             _config = config;
@@ -67,7 +67,7 @@ namespace OrderApi.Controllers
             {
                 await _ordersContext.SaveChangesAsync();
                 _logger.LogWarning("BuyerId is: " + order.BuyerId);
-                //_bus.Publish(new OrderCompletedEvent(order.BuyerId)).Wait();
+                _bus.Publish(new OrderCompletedEvent(order.BuyerId)).Wait();//to publish the message to cart here.Wait for publish to finish
                 return Ok(new { order.OrderId });
             }
             catch (DbUpdateException ex)

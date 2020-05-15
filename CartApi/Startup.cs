@@ -17,7 +17,12 @@ using StackExchange.Redis;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 using System.IdentityModel.Tokens.Jwt;
-
+using Autofac;
+using MassTransit;
+using CartApi.Messaging.Consumers;
+using Autofac.Extensions.DependencyInjection;
+using MassTransit.Util;
+using RabbitMQ.Client;
 namespace CartApi
 
 {
@@ -72,7 +77,35 @@ namespace CartApi
                 });
             });
 
+            //for registring RabbitMQ
+            services.AddMassTransit(cfg =>
+            {
+                //here add event consumer because cart will be consuming the msg
+                cfg.AddConsumer<OrderCompletedEventConsumer>();
+                cfg.AddBus(provider =>
+                {
+                    return Bus.Factory.CreateUsingRabbitMq(rmq =>
+                    {
+                        rmq.Host(new Uri("rabbitmq://rabbitmq"), "/", h =>
+                        {
+                            h.Username("guest");
+                            h.Password("guest");
+                        });
+                        //this is queue name for cartapi. can have multiple queues
+                        rmq.ReceiveEndpoint("EventscartApr20", e =>
+                        {
+                            e.ConfigureConsumer<OrderCompletedEventConsumer>(provider);
+
+                        });
+                    });
+
+                });
+            });
+
+            services.AddMassTransitHostedService();
         }
+        
+
 
         private void ConfigureAuthService(IServiceCollection services)
 
