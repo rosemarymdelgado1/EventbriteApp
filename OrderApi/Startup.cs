@@ -50,7 +50,7 @@ namespace OrderApi
                 //options.DescribeAllEnumsAsStrings();
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
-                    Title = "JewelsonContainers - Order API",
+                    Title = "Eventbrite - Order API",
                     Version = "v1",
                     Description = "Order service API"
                 });

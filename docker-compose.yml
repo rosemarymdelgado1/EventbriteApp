@@ -37,7 +37,7 @@ services:
         max-file: "10"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.0.27:6500
+      IdentityUrl: http://10.0.0.144:6500
       ConnectionString: basket.data
     ports:
       - "6880:80"
@@ -62,7 +62,7 @@ services:
         max-file: "10"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.0.27:6500
+      IdentityUrl: http://10.0.0.144:6500
       DatabaseServer: mssqlserver
       DatabaseName: OrdersDb
       DatabaseUser: sa
@@ -141,12 +141,12 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       CatalogUrl: http://catalog
-      IdentityUrl: http://192.168.0.27:6500
+      IdentityUrl: http://10.0.0.144:6500
       CallBackUrl: http://localhost:5220
       CartUrl: http://cart
       OrderUrl: http://order
-      StripePublicKey: pk_test_BezbQ6Qm14fEQrf9wT7JaTiq006ZrBL78v
-      StripePrivateKey: sk_test_P8xxJFtdgq2ajwTRhBrk1XGF00XD9BlJFc
+      StripePublicKey: pk_test_FGmBtnEXgxYP48jjAzOGMbsP00FH4cD0nt
+      StripePrivateKey: sk_test_uY0o3alxeswkx57lGa7XYJzb00TmXOaolY
     ports:
       - "5220:80"
     networks:
